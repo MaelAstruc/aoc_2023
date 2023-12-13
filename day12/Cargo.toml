@@ -7,4 +7,5 @@ edition = "2021"
 
 [dependencies]
 itertools = "0.12.0"
+memoise = "0.3.2"
 rayon = "1.8.0"
