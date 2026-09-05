@@ -1,0 +1,93 @@
+In two dimensions at time t
+
+X(t) = ax + bx * t
+Y(t) = ay + by * t
+
+Two stones 0 and 1 intersect collide at time t1:
+
+X0(t1) = X1(t1)
+ax0 + bx0 * t1 = ax1 + bx1 * t1
+t1 = - (ax0 - ax1) / (bx0 - bx1)
+
+Y0(t1) = Y1(t1)
+ay0 + by0 * t1 = ay1 + by1 * t1
+t1 = - (ay0 - ay1) / (by0 - by1)
+
+We can deduce:
+
+X0(t1) = X1(t1) & Y0(t1) = Y1(t1)
+=> (ax0 - ax1) / (bx0 - bx1) = - (ay0 - ay1) / (by0 - by1)
+ax0 = ax1 + (ay0 - ay1) * (bx0 - bx1) / (by0 - by1)
+
+We define ratios
+DxUV = (axU - axV) / (bxU - bxV)
+DyUV = (ayU - ayV) / (byU - byV)
+
+We know that
+t = - DxUV = - DyUV
+
+We define DUV as a replacement
+
+With a third stone 2 colliding with stone 0 at time t2
+
+X0(t2) = X2(t2)
+t2 = - (ax0 - ax2) / (bx0 - bx2)
+
+Y0(t2) = Y2(t2)
+t2 = - (ay0 - ay2) / (by0 - by2)
+
+As before
+=> ax0 = ax2 + (bx0 - bx2) * D02
+
+Hence:
+
+ax1 + (bx0 - bx1) * D01 = ax2 + (bx0 - bx2) * D02
+ax1 + (bx0 - bx1) * (ay0 - ay1) / (by0 - by1) = ax2 + (bx0 - bx2) * (ay0 - ay2) / (by0 - by2)
+(ax1 - ax2) + (bx0 - bx1) * (ay0 - ay1) / (by0 - by1) = (bx0 - bx2) * (ay0 - ay2) / (by0 - by2)
+(ax1 - ax2) * (by0 - by2) * (by0 - by1) + (bx0 - bx1) * (by0 - by2) * (ay0 - ay1) = (bx0 - bx2) * (by0 - by1) * (ay0 - ay2)
+(ax1 - ax2) * (by0 - by2) * (by0 - by1) + ay0 * (bx0 - bx1) * (by0 - by2) - ay1 * (bx0 - bx1) * (by0 - by2) = ay0 * (bx0 - bx2) * (by0 - by1) - ay2 * (bx0 - bx2) * (by0 - by1)
+(ax1 - ax2) * (by0 - by2) * (by0 - by1) - ay1 * (bx0 - bx1) * (by0 - by2) + ay2 * (bx0 - bx2) * (by0 - by1) = ay0 * (bx0 - bx2) * (by0 - by1) - ay0 * (bx0 - bx1) * (by0 - by2)
+(ax1 - ax2) * (by0 - by2) * (by0 - by1) - ay1 * (bx0 - bx1) * (by0 - by2) + ay2 * (bx0 - bx2) * (by0 - by1) = ay0 * [(bx0 - bx2) * (by0 - by1) - (bx0 - bx1) * (by0 - by2)]
+ay0 * [(bx0 - bx2) * (by0 - by1) - (bx0 - bx1) * (by0 - by2)] = (ax1 - ax2) * (by0 - by2) * (by0 - by1) - ay1 * (bx0 - bx1) * (by0 - by2) + ay2 * (bx0 - bx2) * (by0 - by1)
+ay0 = (ax1 - ax2) * (by0 - by2) * (by0 - by1) / [(bx0 - bx2) * (by0 - by1) - (bx0 - bx1) * (by0 - by2)]
+    - [ay1 * (bx0 - bx1) * (by0 - by2) - ay2 * (bx0 - bx2) * (by0 - by1)] / [(bx0 - bx2) * (by0 - by1) - (bx0 - bx1) * (by0 - by2)]
+ay0 = (ax1 - ax2) / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)]
+    - [ay1 * (bx0 - bx1) / (by0 - by1) - ay2 * (bx0 - bx2) / (by0 - by2)] / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)]
+ay0 = (ax1 - ax2) / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)]
+    + ay1
+    - (ay1 - ay2) * [ (bx0 - bx2) / (by0 - by2)] / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)]
+ay0 = ay1
+    + [(ax1 - ax2) - (ay1 - ay2) * (bx0 - bx2) / (by0 - by2)]
+        / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)]
+
+Changing it back in ax0
+
+ax0 = ax1 + (ay0 - ay1) * (bx0 - bx1) / (by0 - by1)
+ax0 = ax1 + [(ax1 - ax2) - (ay1 - ay2) * (bx0 - bx2) / (by0 - by2)] / [(bx0 - bx2) / (by0 - by2) - (bx0 - bx1) / (by0 - by1)] * (bx0 - bx1) / (by0 - by1)
+
+
+We know the position of X0 at the different periods:
+
+X0(t0) = ax0
+X0(t1) = ax0 + bx0 * t1
+X0(t2) = ax0 + bx0 * t2
+
+
+
+(ax0 - ax1) * (by0 - by1) = (ay0 - ay1) * (bx0 - bx1)
+(ax0 - ax2) * (by0 - by2) = (ay0 - ay2) * (bx0 - bx2)
+(ax0 - ax3) * (by0 - by3) = (ay0 - ay3) * (bx0 - bx3)
+(ax0 - ax4) * (by0 - by4) = (ay0 - ay4) * (bx0 - bx4)
+
+(ax0 - ax1) / (bx0 - bx1) = (ay0 - ay1) / (by0 - by1)
+(ax0 - ax2) / (bx0 - bx2) = (ay0 - ay2) / (by0 - by2)
+(ax0 - ax3) / (bx0 - bx3) = (ay0 - ay3) / (by0 - by3)
+(ax0 - ax4) / (bx0 - bx4) = (ay0 - ay4) / (by0 - by4)
+
+
+
+
+
+
+
+
